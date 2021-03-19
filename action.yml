@@ -1,12 +1,12 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Jacob Tomlinson"
+name: "Version Logic action"
+description: "Uses Ibexa-specific rules to output previous tag for comparing"
+author: "Petro Kurbatskyi"
 inputs:
-  myInput:
-    description: "Input to use"
-    default: "world"
+  currentTag:
+    description: "Current tag"
+    default: "v1.0.0"
 outputs:
-  myOutput:
+  previousTag:
     description: "Output from the action"
 runs:
   using: "docker"

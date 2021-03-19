@@ -5,12 +5,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Self test
-        id: selftest
 
-        # Put your action repo here
-        uses: jacobtomlinson/python-container-action@master
+      - id: selftest1
+
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.2.4"
+      - id: selftest2
+
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.0.0"
+      - id: selftest3
+
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.3.0"
 
       - name: Check outputs
         run: |
-          test "${{ steps.selftest.outputs.myOutput }}" == "Hello world"
+          test "${{ steps.selftest1.outputs.previousTag }}" == "v2.2.3"
+          test "${{ steps.selftest2.outputs.previousTag }}" == "v1.0.0"
+          test "${{ steps.selftest3.outputs.previousTag }}" == "v2.2.0"
