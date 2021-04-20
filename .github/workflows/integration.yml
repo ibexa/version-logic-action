@@ -7,37 +7,37 @@ jobs:
       - uses: actions/checkout@master
 
       - id: majortest
-        uses: ibexa-yuna/version-logic-action@master
+        uses: ibexa/version-logic-action@master
         with:
           currentTag: "v2.0.0"
 
       - id: minortest
-        uses: ibexa-yuna/version-logic-action@master
+        uses: ibexa/version-logic-action@master
         with:
           currentTag: "v2.3.0"
 
       - id: patchtest
-        uses: ibexa-yuna/version-logic-action@master
+        uses: ibexa/version-logic-action@master
         with:
           currentTag: "v2.2.4"
 
       - id: betatest1
-        uses: ibexa-yuna/version-logic-action@master
+        uses: ibexa/version-logic-action@master
         with:
           currentTag: "v2.2.4-beta1"
 
       - id: betatest2
-        uses: ibexa-yuna/version-logic-action@master
+        uses: ibexa/version-logic-action@master
         with:
           currentTag: "v2.2.4-beta2"
 
       - id: rctest1
-        uses: ibexa-yuna/version-logic-action@master
+        uses: ibexa/version-logic-action@master
         with:
           currentTag: "v2.2.4-rc1"
 
       - id: rctest2
-        uses: ibexa-yuna/version-logic-action@master
+        uses: ibexa/version-logic-action@master
         with:
           currentTag: "v2.2.4-rc2"
 
