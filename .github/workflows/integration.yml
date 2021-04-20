@@ -44,9 +44,9 @@ jobs:
 
       - name: Check outputs
         run: |
-          test "${{ steps.majortest.outputs.previousTag }}" == "v2.2.3"
-          test "${{ steps.minortest.outputs.previousTag }}" == "v1.0.0"
-          test "${{ steps.patchtest.outputs.previousTag }}" == "v2.2.0"
+          test "${{ steps.majortest.outputs.previousTag }}" == "v1.0.0"
+          test "${{ steps.minortest.outputs.previousTag }}" == "v2.2.0"
+          test "${{ steps.patchtest.outputs.previousTag }}" == "v2.2.3"
           test "${{ steps.betatest1.outputs.previousTag }}" == "v2.2.3"
           test "${{ steps.betatest2.outputs.previousTag }}" == "v2.2.4-beta1"
           test "${{ steps.rctest1.outputs.previousTag }}" == "v2.2.4-beta1"
