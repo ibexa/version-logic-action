@@ -6,24 +6,48 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - id: selftest1
-
-        uses: ibexa-yuna/version-logic-action@master
-        with:
-          currentTag: "v2.2.4"
-      - id: selftest2
-
+      - id: majortest
         uses: ibexa-yuna/version-logic-action@master
         with:
           currentTag: "v2.0.0"
-      - id: selftest3
 
+      - id: minortest
         uses: ibexa-yuna/version-logic-action@master
         with:
           currentTag: "v2.3.0"
 
+      - id: patchtest
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.2.4"
+
+      - id: betatest1
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.2.4-beta1"
+
+      - id: betatest2
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.2.4-beta2"
+
+      - id: rctest1
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.2.4-rc1"
+
+      - id: rctest2
+        uses: ibexa-yuna/version-logic-action@master
+        with:
+          currentTag: "v2.2.4-rc2"
+
+
       - name: Check outputs
         run: |
-          test "${{ steps.selftest1.outputs.previousTag }}" == "v2.2.3"
-          test "${{ steps.selftest2.outputs.previousTag }}" == "v1.0.0"
-          test "${{ steps.selftest3.outputs.previousTag }}" == "v2.2.0"
+          test "${{ steps.majortest.outputs.previousTag }}" == "v2.2.3"
+          test "${{ steps.minortest.outputs.previousTag }}" == "v1.0.0"
+          test "${{ steps.patchtest.outputs.previousTag }}" == "v2.2.0"
+          test "${{ steps.betatest1.outputs.previousTag }}" == "v2.2.3"
+          test "${{ steps.betatest2.outputs.previousTag }}" == "v2.2.4-beta1"
+          test "${{ steps.rctest1.outputs.previousTag }}" == "v2.2.4-beta1"
+          test "${{ steps.rctest2.outputs.previousTag }}" == "v2.2.4-rc1"
