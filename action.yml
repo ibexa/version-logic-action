@@ -3,8 +3,12 @@ description: "Uses Ibexa-specific rules to output previous tag for comparing"
 author: "Petro Kurbatskyi"
 inputs:
   currentTag:
+    required: true
     description: "Current tag"
     default: "v1.0.0"
+  prevFullTag:
+    required: false
+    description: "Previous full release tag"
 outputs:
   previousTag:
     description: "Output from the action"
