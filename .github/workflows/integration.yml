@@ -21,6 +21,12 @@ jobs:
         with:
           currentTag: "v2.2.4"
 
+      - id: alphatest1
+        uses: ibexa/version-logic-action@master
+        with:
+          currentTag: "v4.0.0-alpha1"
+          prevFullTag: "v3.3.9"
+
       - id: betatest1
         uses: ibexa/version-logic-action@master
         with:
@@ -47,6 +53,7 @@ jobs:
           test "${{ steps.majortest.outputs.previousTag }}" == "v1.0.0"
           test "${{ steps.minortest.outputs.previousTag }}" == "v2.2.0"
           test "${{ steps.patchtest.outputs.previousTag }}" == "v2.2.3"
+          test "${{ steps.alphatest1.outputs.previousTag }}" == "v3.3.0"
           test "${{ steps.betatest1.outputs.previousTag }}" == "v2.2.3"
           test "${{ steps.betatest2.outputs.previousTag }}" == "v2.2.4-beta1"
           test "${{ steps.rctest1.outputs.previousTag }}" == "v2.2.4-beta1"
