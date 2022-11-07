@@ -39,7 +39,7 @@ def main():
     else:
         previous_tag = semver.format_version(major, minor, patch - 1)
 
-    set_output("previousTag", previous_tag)
+    set_output("previousTag", f"v{previous_tag}")
 
 
 if __name__ == "__main__":

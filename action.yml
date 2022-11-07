@@ -14,4 +14,4 @@ outputs:
     description: "Output from the action"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/ibexa/version-logic-action:v1.3.0"
+  image: "docker://ghcr.io/ibexa/version-logic-action:v1.3.1"
