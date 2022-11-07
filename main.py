@@ -2,6 +2,7 @@ import os
 import requests  # noqa We are just importing this to prove the dependency installed correctly
 import semver
 import re
+from github_action_utils import set_output
 
 
 def main():
@@ -38,7 +39,7 @@ def main():
     else:
         previous_tag = semver.format_version(major, minor, patch - 1)
 
-    print(f"::set-output name=previousTag::v{previous_tag}")
+    set_output("previousTag", previous_tag)
 
 
 if __name__ == "__main__":
