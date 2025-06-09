@@ -9,7 +9,11 @@ def main():
     # cut initial v from input
     current_tag = os.environ["INPUT_CURRENTTAG"][1:]
     # optional parameter
-    previous_full_tag = os.environ.get("INPUT_PREVFULLTAG")
+    # override: if current is 5.0.0-beta1, set previous_full_tag to 4.6.20
+    if current_tag == "5.0.0-beta1":
+        previous_full_tag = "v4.6.20"
+    else:
+        previous_full_tag = os.environ.get("INPUT_PREVFULLTAG")
 
     major, minor, patch, prerelease, _ = semver.VersionInfo.parse(current_tag)
     if previous_full_tag:
